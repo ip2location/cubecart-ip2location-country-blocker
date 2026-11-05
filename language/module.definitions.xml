@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions version="1.0">
+ <group name="ip2location_country_blocker">
+  <string name="module_title"><![CDATA[IP2Location Country Blocker]]></string>
+  <string name="module_description"><![CDATA[Block store visitors from selected countries using the IP2Location geolocation library. Serve a default 403 page, a custom page, or redirect to a custom URL.]]></string>
+  <string name="module_help"><![CDATA[<p>Visitors from blocked countries are denied access to the store.</p>]]></string>
+  <string name="section_general"><![CDATA[General Settings]]></string>
+  <string name="section_countries"><![CDATA[Blocked Countries]]></string>
+  <string name="section_action"><![CDATA[Block Action]]></string>
+  <string name="section_test"><![CDATA[Test]]></string>
+  <string name="db_path"><![CDATA[IP2Location BIN database path]]></string>
+  <string name="db_path_description"><![CDATA[Path to the IP2Location BIN database (used by the BIN source). A free LITE database is bundled with this plugin.]]></string>
+  <string name="db_ok"><![CDATA[Database file found.]]></string>
+  <string name="use_xff"><![CDATA[Use X-Forwarded-For header]]></string>
+  <string name="use_xff_description"><![CDATA[Trust the X-Forwarded-For header when behind a proxy or load balancer.]]></string>
+  <string name="lookup_source"><![CDATA[IP lookup source]]></string>
+  <string name="lookup_source_bin"><![CDATA[IP2Location BIN database]]></string>
+  <string name="lookup_source_api"><![CDATA[IP2Location.io API]]></string>
+  <string name="api_key"><![CDATA[IP2Location.io API key]]></string>
+  <string name="api_key_description"><![CDATA[Get your free API key at <a href="https://www.ip2location.io>IP2Location.io</a>.]]></string>
+  <string name="blocked_countries"><![CDATA[Countries to block]]></string>
+  <string name="blocked_countries_description"><![CDATA[Hold Ctrl (or Cmd) to select multiple countries.]]></string>
+  <string name="selected_count"><![CDATA[selected]]></string>
+  <string name="action"><![CDATA[What to do with blocked visitors]]></string>
+  <string name="action_403"><![CDATA[Show default 403 Forbidden error page]]></string>
+  <string name="action_page"><![CDATA[Show a custom page]]></string>
+  <string name="action_redirect"><![CDATA[Redirect to a custom URL]]></string>
+  <string name="message_403"><![CDATA[403 page message]]></string>
+  <string name="message_403_description"><![CDATA[Optional message for the 403 page.]]></string>
+  <string name="custom_page"><![CDATA[Custom page content (HTML)]]></string>
+  <string name="custom_page_description"><![CDATA[HTML served to blocked visitors.]]></string>
+  <string name="redirect_url"><![CDATA[Redirect URL]]></string>
+  <string name="redirect_url_description"><![CDATA[URL to redirect blocked visitors to (302).]]></string>
+  <string name="your_ip"><![CDATA[Your IP address]]></string>
+  <string name="detected_country"><![CDATA[Detected country for your IP]]></string>
+  <string name="country_unknown"><![CDATA[Unknown]]></string>
+  <string name="test_description"><![CDATA[Country detected for your IP, to confirm the lookup works.]]></string>
+  <string name="download_db_link"><![CDATA[Download the free IP2Location LITE BIN database]]></string>
+  <string name="error_db_missing"><![CDATA[The IP2Location BIN database file could not be found or read at: %1$s]]></string>
+  <string name="error_db_missing_title"><![CDATA[IP2Location database file missing]]></string>
+  <string name="error_db_missing_text"><![CDATA[Country detection needs a valid IP2Location BIN database.]]></string>
+  <string name="section_database"><![CDATA[Download / Update Database]]></string>
+  <string name="download_token"><![CDATA[IP2Location download token]]></string>
+  <string name="download_token_description"><![CDATA[Your IP2Location download token (from ip2location.com/account).]]></string>
+  <string name="db_file_code"><![CDATA[Database file code]]></string>
+  <string name="db_file_code_description"><![CDATA[The database to download (your token must have access).]]></string>
+  <string name="option_db1bin"><![CDATA[IP2Location IP Country Database (Commercial)]]></string>
+  <string name="option_db1litebin"><![CDATA[IP2Location LITE IP Country Database]]></string>
+  <string name="download_db"><![CDATA[Download / Update database]]></string>
+  <string name="download_db_description"><![CDATA[Download and install the selected database.]]></string>
+  <string name="error_api_key_format"><![CDATA[The IP2Location.io API key does not look valid (expected 32 uppercase letters/digits). Check the key in your ip2location.io account.]]></string>
+  <string name="error_invalid_redirect_url"><![CDATA[Invalid Redirect URL. Use an absolute URL (https://...) or a store-relative path.]]></string>
+  <string name="error_download_missing"><![CDATA[Please enter both an IP2Location download token and a database file code.]]></string>
+  <string name="notify_download_ok"><![CDATA[The IP2Location database was downloaded and installed successfully (%1$s bytes).]]></string>
+ </group>
+</definitions>

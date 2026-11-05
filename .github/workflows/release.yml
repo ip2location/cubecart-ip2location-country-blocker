@@ -1,0 +1,50 @@
+name: Release Package
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v4
+
+      - name: Read version from config.xml
+        id: version
+        run: |
+          version=$(sed -n 's|.*<version>\([^<]*\)</version>.*|\1|p' config.xml | head -n1 | tr -d '[:space:]')
+          if [ -z "$version" ]; then
+            echo "::error::Could not read <version> from config.xml"
+            exit 1
+          fi
+          tag="${GITHUB_REF_NAME#v}"
+          if [ "$tag" != "$version" ]; then
+            echo "::error::Release tag '$GITHUB_REF_NAME' does not match config.xml version '$version'"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Build package
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if [ ! -s data/IP2LOCATION-LITE-DB1.BIN ]; then
+            echo "::error::Bundled LITE database data/IP2LOCATION-LITE-DB1.BIN is missing"
+            exit 1
+          fi
+          mkdir -p build/ip2location_country_blocker
+          cp -R admin config.xml class.ip2location_country_blocker.php hooks includes language skin data README.md build/ip2location_country_blocker/
+          cd build
+          zip -r -X "IP2Location_Country_Blocker-${VERSION}.zip" ip2location_country_blocker
+          unzip -l "IP2Location_Country_Blocker-${VERSION}.zip"
+
+      - name: Upload package to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: gh release upload "$GITHUB_REF_NAME" "build/IP2Location_Country_Blocker-${VERSION}.zip" --clobber

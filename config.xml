@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<installer version="1.0">
+  <info>
+	<uid>ip2location-country-blocker@example.local</uid>
+	<type>plugins</type>
+	<category>utilities</category>
+	<name><![CDATA[IP2Location Country Blocker]]></name>
+	<description><![CDATA[Block store visitors from selected countries using the IP2Location geolocation library. For each blocked visitor you can serve the default 403 error page, a custom page, or redirect them to a custom URL.]]></description>
+	<availability>*</availability>
+	<version>1.2.1</version>
+	<minVersion>6.0.0</minVersion>
+	<maxVersion>6.*.*</maxVersion>
+	<creator><![CDATA[IP2Location Country Blocker]]></creator>
+	<homepage><![CDATA[https://www.ip2location.com]]></homepage>
+  </info>
+  <!-- The storefront hook is registered/unregistered automatically by
+       CubeCart when the module is saved with Status enabled/disabled. -->
+  <hooks version="1.0">
+    <hook trigger="controller.index" enabled="1" priority="0"><![CDATA[Block visitors from selected countries]]><file>hooks/controller.index.php</file></hook>
+  </hooks>
+</installer>

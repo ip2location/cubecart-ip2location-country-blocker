@@ -1,0 +1,6 @@
+# Downloaded databases (fetched at runtime via the plugin's download token)
+/data/*
+!/data/IP2LOCATION-LITE-DB1.BIN
+
+# Release build output
+/build/
